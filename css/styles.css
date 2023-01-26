@@ -11465,6 +11465,7 @@ html {
   max-width: 25rem;
   border-radius: 0.5rem;
   overflow: hidden;
+  transition: all 0.5s ease-in-out;
 }
 .portfolio .portfolio-item .portfolio-item-caption {
   position: absolute;
@@ -11476,6 +11477,9 @@ html {
 }
 .portfolio .portfolio-item .portfolio-item-caption:hover {
   opacity: 1;
+}
+.portfolio-item:hover{
+  transform: scale(1.1);
 }
 .portfolio .portfolio-item .portfolio-item-caption .portfolio-item-caption-content {
   font-size: 1.5rem;
