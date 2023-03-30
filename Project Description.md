@@ -4,21 +4,29 @@ Hackers & Security
 
 ## • Description and Goals of the Project
 
-## • Static part: 
+### • Static part: 
 This project will inform you about hackers and cyber security. 
 This website is for people who are interested in finding out about what hackers are and how they hack and there is information on how to be safe from those hacks.
 
-## • Dynamic part: 
+### • Dynamic part: 
 There will also be some small games on how to guess passwords or find them inside the source code of a website. 
 
-## • Main tasks:
+### • Main tasks:
+added most Information to the static part: done (Dec 22, 2022)
 
-## • Used Source Version Control System: Github
+fixed the design of the website: done (Feb 2, 2023)
+
+added login function: not done ()
+
+added games to the website: not done ()
+
+## • Used Source Version Control System: 
+Github
 
 ## • Project Members: 
 
-Timon Schmalzer (Project )
+Timon Schmalzer (Project Member)
 
-Semih Yüzüak (Project )
+Semih Yüzüak (Project Member)
 
 David Klewein (Project Client) 
