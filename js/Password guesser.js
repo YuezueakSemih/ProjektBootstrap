@@ -28,6 +28,10 @@ function checkPassword()
       break;
     }
   }
+  if (currentTry === (maxTries / 5)) 
+  {
+    alert("The first two letters are " + secretPassword[0] + secretPassword[1]);
+  }
   if (currentTry === maxTries) {
     alert("Sie haben alle Versuche aufgebraucht.");
     document.getElementById("password-input").disabled = true;
