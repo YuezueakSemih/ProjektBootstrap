@@ -6,20 +6,28 @@ const maxTries = 10;
 let currentTry = 0;
 
 // Funktion zur Überprüfung des eingegebenen Passworts
-function checkPassword() {
+function checkPassword() 
+{
   const input = document.getElementById("password-input").value;
   currentTry++;
 
-  if (input.length < 8) {
+  if (input.length < secretPassword.length) {
     alert("Das Passwort ist zu kurz!");
-  } else if (input.length > 20) {
+  } else if (input.length > secretPassword.length) {
     alert("Das Passwort ist zu lang!");
   } else if (input !== secretPassword) {
-    alert("Das Passwort ist inkorrekt! Versuchen Sie es erneut.");
+    alert("Richtige Länge, aber falsches Passwort!");
   } else {
     alert("Herzlichen Glückwunsch, Sie haben das Passwort richtig geraten!");
   }
-
+  for(i = 0; i < secretPassword.length; i++)
+  {
+    if(input[i] !== secretPassword[i])
+    {
+      alert("Die Zeichen sind bis zur Stelle " + i + " richtig!");
+      break;
+    }
+  }
   if (currentTry === maxTries) {
     alert("Sie haben alle Versuche aufgebraucht.");
     document.getElementById("password-input").disabled = true;
