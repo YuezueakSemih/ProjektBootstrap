@@ -2,7 +2,7 @@
 const secretPassword = "geheim123";
 
 // Die Anzahl der zulässigen Versuche festlegen
-const maxTries = 3;
+const maxTries = 10;
 let currentTry = 0;
 
 // Funktion zur Überprüfung des eingegebenen Passworts
