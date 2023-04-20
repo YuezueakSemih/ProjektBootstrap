@@ -1,30 +1,30 @@
-// Das geheime Passwort festlegen
-const secretPassword = "geheim123";
+// Secret password
+const secretPassword = "secret123";
 
-// Die Anzahl der zulässigen Versuche festlegen
+// Amount of tries
 const maxTries = 10;
 let currentTry = 0;
 
-// Funktion zur Überprüfung des eingegebenen Passworts
+// Function for checking the password
 function checkPassword() 
 {
   const input = document.getElementById("password-input").value;
   currentTry++;
 
   if (input.length < secretPassword.length) {
-    alert("Das Passwort ist zu kurz!");
+    alert("The password is to short!");
   } else if (input.length > secretPassword.length) {
-    alert("Das Passwort ist zu lang!");
+    alert("The password is to long!");
   } else if (input !== secretPassword) {
-    alert("Richtige Länge, aber falsches Passwort!");
+    alert("Right length, wrong password!");
   } else {
-    alert("Herzlichen Glückwunsch, Sie haben das Passwort richtig geraten!");
+    alert("Correct Password. Congratulations!");
   }
   for(i = 0; i < secretPassword.length; i++)
   {
     if(input[i] !== secretPassword[i])
     {
-      alert("Die Zeichen sind bis zur Stelle " + i + " richtig!");
+      alert("The first " + i + " letters are correct!");
       break;
     }
   }
@@ -32,12 +32,15 @@ function checkPassword()
   {
     alert("The first two letters are " + secretPassword[0] + secretPassword[1]);
   }
+  else if(currentTry === (maxTries / 2))
+  {
+    alert("The first 4 letters are " + secretPassword[0] + secretPassword[1] + secretPassword[2] + secretPassword[3]);
+  }
   if (currentTry === maxTries) {
-    alert("Sie haben alle Versuche aufgebraucht.");
+    alert("No tries left.");
     document.getElementById("password-input").disabled = true;
     document.getElementById("check-button").disabled = true;
   }
 }
 
-// Ereignis-Listener zum Überprüfen des Passworts
 document.getElementById("check-button").addEventListener("click", checkPassword);
