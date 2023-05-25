@@ -1,7 +1,8 @@
 // Geheimes Wort und Schlüssel für die Vigenère-Verschlüsselung
 var secretWord = "GEHEIM";
 var key = "SCHLUESSEL";
-
+const maxTries = 10;
+let currentTry = 0;
 // Funktion zur Verschlüsselung mit dem Vigenère-Verschlüsselungsalgorithmus
 function encrypt(text, key) {
   var encryptedText = "";
