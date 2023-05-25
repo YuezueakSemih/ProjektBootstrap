@@ -1,3 +1,6 @@
+const unsolvedWord = "Oqpmga";
+const maxTries = 10;
+let currentTry = 0;
 // Define the substitution cipher function
 function substitutionCipher(str, key) {
     str = str.toUpperCase();
@@ -17,10 +20,20 @@ function substitutionCipher(str, key) {
   // Challenge logic
   function checkAnswer() {
     var answer = document.getElementById("answer").value.toUpperCase();
-    if (answer === substitutionCipher("HELLO WORLD", "ZYXWVUTSRQPONMLKJIHGFEDCBA")) {
+    let solvedWord = substitutionCipher(unsolvedWord, "ZYXWVUTSRQPONMLKJIHGFEDCBA");
+    if (answer === solvedWord) {
       alert("Congratulations! You solved the Substitution Cipher Challenge.");
     } else {
-      alert("Sorry, that is not the correct answer. Please try again.");
+      alert("Sorry, that is not the correct answer. Please try again." + solvedWord);
+      currentTry++;
+    }
+    if(currentTry === (maxTries/5))
+    {
+      alert("The first letter is " + solvedWord[0] + "The letters ")
+    }
+    else if(currentTry === (maxTries/2))
+    {
+
     }
   }
   
