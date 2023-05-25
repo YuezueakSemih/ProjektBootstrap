@@ -31,8 +31,8 @@ function checkGuess() {
   var encryptedSecretWord = encrypt(secretWord, key);
 
   if (guess === encryptedSecretWord) {
-    alert("Glückwunsch! Du hast das geheime Wort richtig erraten.");
+    alert("Glückwunsch! Du hast das geheime Wort richtig erraten." + encryptedSecretWord);
   } else {
-    alert("Leider ist das nicht das geheime Wort. Versuche es erneut!");
+    alert("Leider ist das nicht das geheime Wort. Versuche es erneut!" + encryptedSecretWord);
   }
 }
