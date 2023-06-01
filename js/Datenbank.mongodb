@@ -4,14 +4,14 @@
 // Use Ctrl+Space inside a snippet or a string literal to trigger completions.
 
 // Select the database to use.
-use('mongodbVSCodePlaygroundDB');
+//use('mongodbVSCodePlaygroundDB');
 
 // The drop() command destroys all data from a collection.
 // Make sure you run it against the correct database and collection.
-db.sales.drop();
+//db.sales.drop();
 
 // Insert a few documents into the sales collection.
-db.sales.insertMany([
+/* db.sales.insertMany([
   { '_id': 1, 'item': 'abc', 'price': 10, 'quantity': 2, 'date': new Date('2014-03-01T08:00:00Z') },
   { '_id': 2, 'item': 'jkl', 'price': 20, 'quantity': 1, 'date': new Date('2014-03-01T09:00:00Z') },
   { '_id': 3, 'item': 'xyz', 'price': 5, 'quantity': 10, 'date': new Date('2014-03-15T09:00:00Z') },
@@ -35,3 +35,29 @@ const aggregation = [
 // Use toArray() to exhaust the cursor to return the whole result set.
 // You can use hasNext()/next() to iterate through the cursor page by page.
 db.sales.aggregate(aggregation);
+*/
+app.post('/account', (req, res) => {
+  const { username, password } = req.body;
+  const sql = 'INSERT INTO accounts (username, password) VALUES (?, ?)';
+  connection.query(sql, [username, password], (error, results) => {
+    if (error) {
+      console.error('Fehler beim Erstellen des Accounts: ' + error.stack);
+      return res.status(500).json({ error: 'Fehler beim Erstellen des Accounts' });
+    }
+    res.status(200).json({ message: 'Account erfolgreich erstellt' });
+  });
+});
+
+// API-Endpunkt zum Aktualisieren des Spielfortschritts
+app.put('/account/:username/progress', (req, res) => {
+  const { username } = req.params;
+  const { progress } = req.body;
+  const sql = 'UPDATE accounts SET progress = ? WHERE username = ?';
+  connection.query(sql, [progress, username], (error, results) => {
+    if (error) {
+      console.error('Fehler beim Aktualisieren des Spielfortschritts: ' + error.stack);
+      return res.status(500).json({ error: 'Fehler beim Aktualisieren des Spielfortschritts' });
+    }
+    res.status(200).json({ message: 'Spielfortschritt erfolgreich aktualisiert' });
+  });
+});
