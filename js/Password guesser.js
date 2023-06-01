@@ -5,42 +5,44 @@ const secretPassword = "secret123";
 const maxTries = 10;
 let currentTry = 0;
 
+// Array to store messages
+let messages = [];
+
 // Function for checking the password
-function checkPassword() 
-{
+function checkPassword() {
   const input = document.getElementById("password-input").value;
   currentTry++;
 
   if (input.length < secretPassword.length) {
-    alert("The password is to short!");
+    messages.push("The password is too short!");
   } else if (input.length > secretPassword.length) {
-    alert("The password is to long!");
-  } else if (input !== secretPassword) {
-    alert("Right length, wrong password!");
+    messages.push("The password is too long!");
   } else {
-    alert("Correct Password. Congratulations!");
-  }
-  for(i = 0; i < secretPassword.length; i++)
-  {
-    if(input[i] !== secretPassword[i])
-    {
-      alert("The first " + i + " letters are correct!");
-      break;
+    let correctLetters = 0;
+    for (let i = 0; i < secretPassword.length; i++) {
+      if (input[i] === secretPassword[i]) {
+        correctLetters++;
+      }
+    }
+    if (correctLetters === secretPassword.length) {
+      messages.push("Correct Password. Congratulations!");
+    } else {
+      messages.push("Right length, but not all letters are correct.");
+      messages.push("Number of correct letters: " + correctLetters + " out of " + secretPassword.length);
     }
   }
-  if (currentTry === (maxTries / 5)) 
-  {
-    alert("The first two letters are " + secretPassword[0] + secretPassword[1]);
-  }
-  else if(currentTry === (maxTries / 2))
-  {
-    alert("The first 4 letters are " + secretPassword[0] + secretPassword[1] + secretPassword[2] + secretPassword[3]);
-  }
+
   if (currentTry === maxTries) {
-    alert("No tries left.");
+    messages.push("No tries left.");
     document.getElementById("password-input").disabled = true;
     document.getElementById("check-button").disabled = true;
   }
+
+  displayMessages();
 }
 
-document.getElementById("check-button").addEventListener("click", checkPassword);
+// Function to display messages on the website
+function displayMessages() {
+  const output = document.getElementById("output");
+  output.innerHTML = messages.join("<br>");
+}
