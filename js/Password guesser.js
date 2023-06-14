@@ -13,6 +13,9 @@ function checkPassword() {
   const input = document.getElementById("password-input").value;
   currentTry++;
 
+  // Clear previous messages
+  messages = [];
+
   if (input.length < secretPassword.length) {
     messages.push("The password is too short!");
   } else if (input.length > secretPassword.length) {
@@ -31,6 +34,9 @@ function checkPassword() {
       messages.push("Number of correct letters: " + correctLetters + " out of " + secretPassword.length);
     }
   }
+
+  const remainingTries = maxTries - currentTry;
+  messages.push("Remaining tries: " + remainingTries);
 
   if (currentTry === maxTries) {
     messages.push("No tries left.");

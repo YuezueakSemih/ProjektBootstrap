@@ -2,12 +2,19 @@
 <html>
 <head>
   <title>Vigenère cipher</title>
+  <link rel="stylesheet" type="text/css" href="css/GameDesign.css">
 </head>
 <body>
-  <h1>Vigenère cipher</h1>
-  <p>Guess the secret word:</p>
-  <input type="text" id="guess">
-  <button onclick="checkGuess()">Guess</button>
+  <header>
+    <h1>Vigenère cipher</h1>
+  </header>
+
+  <main>
+    <p>Guess the secret word:</p>
+    <input type="text" id="guess">
+    <button onclick="checkGuess()">Guess</button>
+    <p id="output"></p>
+  </main>
 
   <script src="js/Vigenère cipher.js"></script>
 </body>

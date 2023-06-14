@@ -2,13 +2,21 @@
 <html>
 <head>
 	<title>Substitution Cipher Challenge</title>
+	<link rel="stylesheet" type="text/css" href="css/GameDesign.css">
 </head>
 <body>
-	<h1>Substitution Cipher Challenge</h1>
-	<p id="plaintext">There is a Text written: HELLO WORLD</p>
-	<p id="key">Some random letters below it: ZYXWVUTSRQPONMLKJIHGFEDCBA</p>
-	<input type="text" id="answer">
-	<button onclick="checkAnswer()">Submit</button>
+	<header>
+		<h1>Substitution Cipher Challenge</h1>
+	</header>
+
+	<main>
+		<p id="plaintext">There is a Text written: HELLO WORLD</p>
+		<p id="key">Some random letters below it: ZYXWVUTSRQPONMLKJIHGFEDCBA</p>
+		<input type="text" id="answer">
+		<button onclick="checkAnswer()">Submit</button>
+		<p id="result"></p>
+	</main>
+
 	<script src="js/Substitution cipher.js"></script>
 </body>
 </html>

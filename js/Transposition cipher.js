@@ -23,8 +23,8 @@ function transpositionCipherEncrypt(text, key) {
   
     var encryptedText = transpositionCipherEncrypt(secretText, key);
   
-    document.getElementById('welcome').innerHTML = 'Willkommen zum Ratespiel!';
-    document.getElementById('encryptedText').innerHTML = 'Der verschlüsselte Text lautet: ' + encryptedText;
+    document.getElementById('welcome').innerHTML = 'Welcome to the guessing game';
+    document.getElementById('encryptedText').innerHTML = 'The encrypted word is ' + encryptedText;
   
     var attempts = 0;
     var guessed = false;
@@ -37,14 +37,14 @@ function transpositionCipherEncrypt(text, key) {
       var guess = guessInput.value;
   
       if (guess === secretText) {
-        resultMessage.innerHTML = 'Glückwunsch! Du hast den Text entschlüsselt.';
+        resultMessage.innerHTML = 'Congratulations! You solved the Transposition Cipher Challenge.';
         guessed = true;
       } else {
         attempts++;
         if (attempts < maxAttempts) {
-          resultMessage.innerHTML = 'Leider falsch. Du hast noch ' + (maxAttempts - attempts) + ' Versuch(e) übrig.';
+          resultMessage.innerHTML = 'Wrong guess. ' + (maxAttempts - attempts) + ' Tries left.';
         } else {
-          resultMessage.innerHTML = 'Du hast keine Versuche mehr. Der richtige Text lautet: ' + secretText;
+          resultMessage.innerHTML = 'No more tries left. The secret word was: ' + secretText;
         }
       }
   

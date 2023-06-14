@@ -3,6 +3,9 @@ var secretWord = "GEHEIM";
 var key = "SCHLUESSEL";
 const maxTries = 10;
 let currentTry = 0;
+// Array zur Speicherung von Nachrichten
+let messages = [];
+
 // Funktion zur Verschlüsselung mit dem Vigenère-Verschlüsselungsalgorithmus
 function encrypt(text, key) {
   var encryptedText = "";
@@ -30,10 +33,30 @@ function encrypt(text, key) {
 function checkGuess() {
   var guess = document.getElementById("guess").value.toUpperCase();
   var encryptedSecretWord = encrypt(secretWord, key);
+  currentTry++;
+
+  // Clear previous messages
+  messages = [];
 
   if (guess === encryptedSecretWord) {
-    alert("Glückwunsch! Du hast das geheime Wort richtig erraten." + encryptedSecretWord);
+    messages.push("Congratulations! You solved the secret.");
   } else {
-    alert("Leider ist das nicht das geheime Wort. Versuche es erneut!" + encryptedSecretWord);
+    messages.push("Wrong guess. Please try again.");
   }
+
+  const remainingTries = maxTries - currentTry;
+  messages.push("Remaining tries: " + remainingTries);
+
+  if (currentTry === maxTries) {
+    document.getElementById("guess").disabled = true;
+    messages.push("No Tries left.");
+  }
+
+  displayMessages();
+}
+
+// Funktion zur Anzeige von Nachrichten auf der Webseite
+function displayMessages() {
+  var output = document.getElementById("output");
+  output.innerHTML = messages.join("<br>");
 }
