@@ -16,8 +16,10 @@ added most Information to the static part: done (Dec 22, 2022)
 
 fixed the design of the website: done (Feb 2, 2023)
 
-added games to the website: Password checker: not done()
-                            Find the password: not done()
+added games to the website: Password checker: done(Apr 13, 2023)
+                            diffrent encryption methods: done(Jun 15, 2023)
+                            simple login: done(Jun 15, 2023)
+                            Database for login and points: not done
 
 ## • Used Source Version Control System: 
 Github

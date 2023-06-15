@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login-Seite</title>
+  <link rel="stylesheet" href="css/loginDesign.css">
+  <script src="js/scripts.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h2>Login</h2>
+    <form>
+      <div class="form-group">
+        <label for="username">Benutzername:</label>
+        <input type="text" id="username" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Passwort:</label>
+        <input type="password" id="password" required>
+      </div>
+      <div>
+        <input type="submit" value="Anmelden" onclick="login(event)">
+      </div>
+    </form>
+    <div id="result"></div>
+  </div>
+</body>
+</html>

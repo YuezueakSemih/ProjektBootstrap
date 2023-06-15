@@ -52,3 +52,19 @@ window.addEventListener('DOMContentLoaded', event => {
     });
 
 });
+
+function login(event) {
+    event.preventDefault();
+  
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+  
+    if (username === "admin" && password === "123456") {
+      window.location.href = "../GameSite.html";
+    } else {
+      document.getElementById("result").innerHTML = "Ungültiger Benutzername oder Passwort.";
+    }
+  }
+  
+  
+  
