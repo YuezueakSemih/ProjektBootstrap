@@ -1,4 +1,4 @@
-const unsolvedWord = "Oqpmga";
+const unsolvedWord = "Kmlicw";
 const maxTries = 10;
 let currentTry = 0;
 
