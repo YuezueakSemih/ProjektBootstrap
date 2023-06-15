@@ -28,20 +28,20 @@ function checkAnswer() {
   const solvedWord = caesarCipher(unsolvedWord, 2);
 
   if (answer === solvedWord) {
-    displayResult('Glückwunsch! Du hast die Caesar Cipher Challenge gelöst.');
+    displayResult('Congratulations! You solved the mistery.');
   } else {
-    displayResult('Leider ist das nicht die richtige Antwort. Bitte versuche es erneut.');
+    displayResult('Wrong answer. Try again.');
     currentTry++;
   }
 
   if (currentTry === maxTries / 5) {
-    displayResult('Der erste Buchstabe ist ' + solvedWord[0] + '. Du musst die Pfeile zählen.');
+    displayResult('The first letter is ' + solvedWord[0] + '. You need to count the arrows.');
   } else if (currentTry === maxTries / 2) {
-    displayResult('Die ersten beiden Buchstaben sind ' + solvedWord[0] + solvedWord[1] + '. Das Wort ist um 2 Buchstaben verschoben.');
+    displayResult('The first two letters are ' + solvedWord[0] + solvedWord[1] + '. The word is moved by 2 letters.');
   }
 
   if (currentTry === maxTries) {
-    displayResult('Keine Versuche mehr übrig. Hier ist ein kurzes Video über den Caesar Cipher: <a href="https://www.youtube.com/watch?v=l6jqKRXSShI" target="_blank">Video</a>.');
+    displayResult('No tries left. Here is a video about the caesar cipher: "https://www.youtube.com/watch?v=l6jqKRXSShI".');
     document.getElementById("answer").disabled = true;
     document.getElementById("check-button").disabled = true;
   }
